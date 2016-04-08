@@ -208,3 +208,33 @@ Type: `Function`
 
 The function that is executed for each node in the collection of file descendants.  It takes a single parameter
 which is the node that is current in the iteration.
+
+#### TreeNode.getChildrenByPattern(pattern)
+Type: `Function`
+
+This function will return all immediate children of this node whose path matches the given pattern.
+
+##### pattern
+Type: `RegExp`
+
+The regular expression to test against the paths properties.
+
+#### TreeNode.getFilesByPattern(pattern)
+Type: `Function`
+
+This function will return all immediate child files of this node whose path matches the given pattern.
+
+##### pattern
+Type: `RegExp`
+
+The regular expression to test against the paths properties.
+
+#### TreeNode.getDirectoriesByPattern(pattern)
+Type: `Function`
+
+This function will return all immediate child directories of this node whose path matches the given pattern.
+
+##### pattern
+Type: `RegExp`
+
+The regular expression to test against the paths properties.
