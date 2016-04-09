@@ -209,7 +209,7 @@ Type: `Function`
 The function that is executed for each node in the collection of file descendants.  It takes a single parameter
 which is the node that is current in the iteration.
 
-#### TreeNode.getChildrenByPattern(pattern)
+#### TreeNode.getChildrenByPattern(pattern, negate)
 Type: `Function`
 
 This function will return all immediate children of this node whose path matches the given pattern.
@@ -219,7 +219,12 @@ Type: `RegExp`
 
 The regular expression to test against the paths properties.
 
-#### TreeNode.getFilesByPattern(pattern)
+##### negate
+Type: `Boolean`
+
+When set to true the function will return all immediate children of this node whose path doesn't match the given pattern.
+
+#### TreeNode.getFilesByPattern(pattern, negate)
 Type: `Function`
 
 This function will return all immediate child files of this node whose path matches the given pattern.
@@ -229,7 +234,12 @@ Type: `RegExp`
 
 The regular expression to test against the paths properties.
 
-#### TreeNode.getDirectoriesByPattern(pattern)
+##### negate
+Type: `Boolean`
+
+When set to true the function will return all immediate children of this node whose path doesn't match the given pattern.
+
+#### TreeNode.getDirectoriesByPattern(pattern, negate)
 Type: `Function`
 
 This function will return all immediate child directories of this node whose path matches the given pattern.
@@ -238,3 +248,23 @@ This function will return all immediate child directories of this node whose pat
 Type: `RegExp`
 
 The regular expression to test against the paths properties.
+
+##### negate
+Type: `Boolean`
+
+When set to true the function will return all immediate children of this node whose path doesn't match the given pattern.
+
+#### TreeNode.getChildrenByNotPattern(pattern)
+Type: `Function`
+
+This function is the same as calling TreeNode.getChildrenByPattern(pattern, true);
+
+#### TreeNode.getFilesByPattern(pattern, negate)
+Type: `Function`
+
+This function is the same as calling TreeNode.getFilesByNotPatter(pattern, true);
+
+#### TreeNode.getDirectoriesByPattern(pattern, negate)
+Type: `Function`
+
+This function is the same as calling TreeNode.getDirectoriesByNotPatter(pattern, true);
