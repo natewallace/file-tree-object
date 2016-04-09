@@ -268,3 +268,20 @@ This function is the same as calling TreeNode.getFilesByNotPatter(pattern, true)
 Type: `Function`
 
 This function is the same as calling TreeNode.getDirectoriesByNotPatter(pattern, true);
+
+#### TreeNode.getRoot()
+Type: `Function`
+
+Get the node that is the root in the tree.
+
+#### TreeNode.getPathFromRoot()
+Type: `Function`
+
+Get the path starting from the root.  For example, if the root of the tree has a path of */my/example/of/some/folders* and there is a
+node in the tree with a path of */my/example/of/some/folders/and/some/more* then the result from getPathFromRoot on that node will return
+*and/some/more*.
+
+#### TreeNode.getPathBasename()
+Type: `Function`
+
+Get the basename for the path.  For example if the path is */my/example/file1.txt* then this function will return *file1.txt*
