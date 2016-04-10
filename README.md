@@ -174,6 +174,26 @@ Type: `Array`
 This property is an array of TreeNode objects that are children of this node and are files (isFile == true).
 It will never be null.  If there are no child files then this property will be an empty array.
 
+#### TreeNode.getChildByPath(filePath)
+Type: `Function`
+
+Get an immediate child of this node that has the given file path.
+
+##### filePath
+Type: `String`
+
+The path to lookup.  The lookup is case insensitive and can be either the basename or the full path value.
+
+#### TreeNode.getByPath(filePath)
+Type: `Function`
+
+Get a descendant of this node that has the given file path.
+
+##### filePath
+Type: `String`
+
+The path to lookup.  The lookup is case insensitive and can be either the full path value or the path relative to this node.
+
 #### TreeNode.forEach(cb)
 Type: `Function`
 

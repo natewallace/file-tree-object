@@ -37,4 +37,14 @@ describe('path tests', function () {
     assert.equal(sub2.getRoot(), tree, 'sub2 is incorrect');
     assert.equal(file5.getRoot(), tree, 'file5 is incorrect');
   });
+
+  /**
+   * Test getByPath function
+   */
+  it('get by path', function () {
+    var tree = fto.createTreeSync(path.join(__dirname, '/fixtures/test3'));
+    var file5 = tree.getByPath('sub/sub2/file5.txt');
+    assert.ok(file5, 'could not find file5');
+    assert.equal(file5.path, path.join(__dirname, '/fixtures/test3/sub/sub2/file5.txt'), 'file5 is incorrect');
+  });
 });
