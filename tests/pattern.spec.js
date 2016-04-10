@@ -19,7 +19,7 @@ describe('pattern tests', function () {
     tree.getChildrenByPattern(/(sub$)|(\.txt$)/).forEach(function (item) {
       totalCount++;
       results[item.path] += 1;
-    });
+    }, { recurse: true });
 
     assert.equal(totalCount, 3, 'total number of iterations incorrect');
     assert.equal(results[path.join(__dirname, '/fixtures/test3/file1.txt')], 1, 'file1 file incorrect');
@@ -28,7 +28,7 @@ describe('pattern tests', function () {
   });
 
   /**
-   * Test getChildrenByNotPattern function
+   * Test getChildrenByPattern function
    */
   it('get children by not pattern', function () {
     var tree = fto.createTreeSync(path.join(__dirname, '/fixtures/test3'));
@@ -37,7 +37,7 @@ describe('pattern tests', function () {
     results[path.join(__dirname, '/fixtures/test3/file2.txt')] = 0;
     results[path.join(__dirname, '/fixtures/test3/sub')] = 0;
     
-    tree.getChildrenByNotPattern(/file1\.txt$/).forEach(function (item) {
+    tree.getChildrenByPattern(/file1\.txt$/, { recurse: true, negate: true }).forEach(function (item) {
       totalCount++;
       results[item.path] += 1;
     });
@@ -60,7 +60,7 @@ describe('pattern tests', function () {
     tree.getFilesByPattern(/(sub$)|(\.txt$)/).forEach(function (item) {
       totalCount++;
       results[item.path] += 1;
-    });
+    }, { recurse: true });
 
     assert.equal(totalCount, 2, 'total number of iterations incorrect');
     assert.equal(results[path.join(__dirname, '/fixtures/test3/file1.txt')], 1, 'file1 file incorrect');
@@ -68,7 +68,7 @@ describe('pattern tests', function () {
   });
   
   /**
-   * Test getFilesByNotPattern function
+   * Test getFilesByPattern function
    */
   it('get files by not pattern', function () {
     var tree = fto.createTreeSync(path.join(__dirname, '/fixtures/test3'));
@@ -76,7 +76,7 @@ describe('pattern tests', function () {
     var results = {};
     results[path.join(__dirname, '/fixtures/test3/file2.txt')] = 0;
     
-    tree.getFilesByNotPattern(/file1\.txt$/).forEach(function (item) {
+    tree.getFilesByPattern(/file1\.txt$/, { recurse: true, negate: true }).forEach(function (item) {
       totalCount++;
       results[item.path] += 1;
     });
@@ -97,21 +97,21 @@ describe('pattern tests', function () {
     tree.getDirectoriesByPattern(/(sub$)|(\.txt$)/).forEach(function (item) {
       totalCount++;
       results[item.path] += 1;
-    });
+    }, { recurse: true });
 
     assert.equal(totalCount, 1, 'total number of iterations incorrect');
     assert.equal(results[path.join(__dirname, '/fixtures/test3/sub')], 1, 'sub directory incorrect');
   });
 
   /**
-   * Test getDirectoriesByNotPattern function
+   * Test getDirectoriesByPattern function
    */
   it('get directories by not pattern', function () {
     var tree = fto.createTreeSync(path.join(__dirname, '/fixtures/test3'));
     var totalCount = 0;
     var results = {};
     
-    tree.getDirectoriesByNotPattern(/sub$/).forEach(function (item) {
+    tree.getDirectoriesByPattern(/sub$/, { recurse: true, negate: true }).forEach(function (item) {
       totalCount++;
       results[item.path] += 1;
     });

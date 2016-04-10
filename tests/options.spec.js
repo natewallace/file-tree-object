@@ -20,7 +20,7 @@ describe('option tests', function () {
     tree.forEach(function (item) {
       totalCount++;
       results[item.path] += 1;
-    });
+    }, { recurse: true });
 
     assert.equal(totalCount, 4, 'total number of iterations incorrect');
     assert.equal(results[path.join(__dirname, '/fixtures/test4')], 1, 'root directory incorrect');
@@ -46,7 +46,7 @@ describe('option tests', function () {
     tree.forEach(function (item) {
       totalCount++;
       results[item.path] += 1;
-    });
+    }, { recurse: true });
 
     assert.equal(totalCount, 6, 'total number of iterations incorrect');
     assert.equal(results[path.join(__dirname, '/fixtures/test4')], 1, 'root directory incorrect');
@@ -72,7 +72,7 @@ describe('option tests', function () {
     tree.forEach(function (item) {
       totalCount++;
       results[item.path] += 1;
-    });
+    }, { recurse: true });
 
     assert.equal(totalCount, 3, 'total number of iterations incorrect');
     assert.equal(results[path.join(__dirname, '/fixtures/test4')], 1, 'root directory incorrect');
@@ -97,7 +97,7 @@ describe('option tests', function () {
     tree.forEach(function (item) {
       totalCount++;
       results[item.path] += 1;
-    });
+    }, { recurse: true });
 
     assert.equal(totalCount, 3, 'total number of iterations incorrect');
     assert.equal(results[path.join(__dirname, '/fixtures/test4')], 1, 'root directory incorrect');

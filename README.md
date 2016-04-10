@@ -194,100 +194,115 @@ Type: `String`
 
 The path to lookup.  The lookup is case insensitive and can be either the full path value or the path relative to this node.
 
-#### TreeNode.forEach(cb)
+#### TreeNode.forEach(cb, options)
 Type: `Function`
 
-This function will iterate through this node and all descendants of this node.
+This function will iterate through this node and optionally all descendants of this node.
 
 ##### cb
 Type: `Function`
 
-The function that is executed for this node and each node in the collection of descendants.  It takes a single parameter
+The function that is executed for this node and each node in the collection of children.  It takes a single parameter
 which is the node that is current in the iteration.
 
-#### TreeNode.forEachDirectory(cb)
+##### options.recurse
+Type: `Boolean` Default: `false`
+
+When set to true all descendants of this node will be iterated through.
+
+#### TreeNode.forEachDirectory(cb, options)
 Type: `Function`
 
-This function will iterate through this node and all directory descendants (isDirectory == true) of this node.  Only directories will be iterated
+This function will iterate through this node and all directory children (isDirectory == true) of this node.  Only directories will be iterated
 over.
 
 ##### cb
 Type: `Function`
 
-The function that is executed for this node and each node in the collection of directory descendants.  It takes a single parameter
+The function that is executed for this node and each node in the collection of directory children.  It takes a single parameter
 which is the node that is current in the iteration.
+
+##### options.recurse
+Type: `Boolean` Default: `false`
+
+When set to true all descendants of this node will be iterated through.
 
 #### TreeNode.forEachFile(cb)
 Type: `Function`
 
-This function will iterate through all file descendants (isFile == true) of this node.  Only files will be iterated
+This function will iterate through all file children (isFile == true) of this node.  Only files will be iterated
 over.
 
 ##### cb
 Type: `Function`
 
-The function that is executed for each node in the collection of file descendants.  It takes a single parameter
+The function that is executed for each node in the collection of file children.  It takes a single parameter
 which is the node that is current in the iteration.
 
-#### TreeNode.getChildrenByPattern(pattern, negate)
+##### options.recurse
+Type: `Boolean` Default: `false`
+
+When set to true all descendants of this node will be iterated through.
+
+#### TreeNode.getChildrenByPattern(pattern, options)
 Type: `Function`
 
-This function will return all immediate children of this node whose path matches the given pattern.
+This function will return all children of this node whose path matches the given pattern.
 
 ##### pattern
 Type: `RegExp`
 
 The regular expression to test against the paths properties.
 
-##### negate
+##### options.negate
 Type: `Boolean`
 
-When set to true the function will return all immediate children of this node whose path doesn't match the given pattern.
+When set to true the function will return all children of this node whose path doesn't match the given pattern.
 
-#### TreeNode.getFilesByPattern(pattern, negate)
+##### options.recurse
+Type: `Boolean` Default: `false`
+
+When set to true all descendants of this node will be searched through.
+
+#### TreeNode.getFilesByPattern(pattern, options)
 Type: `Function`
 
-This function will return all immediate child files of this node whose path matches the given pattern.
+This function will return all child files of this node whose path matches the given pattern.
 
 ##### pattern
 Type: `RegExp`
 
 The regular expression to test against the paths properties.
 
-##### negate
+##### options.negate
 Type: `Boolean`
 
-When set to true the function will return all immediate children of this node whose path doesn't match the given pattern.
+When set to true the function will return all children of this node whose path doesn't match the given pattern.
+
+##### options.recurse
+Type: `Boolean` Default: `false`
+
+When set to true all descendants of this node will be iterated through.
 
 #### TreeNode.getDirectoriesByPattern(pattern, negate)
 Type: `Function`
 
-This function will return all immediate child directories of this node whose path matches the given pattern.
+This function will return child directories of this node whose path matches the given pattern.
 
 ##### pattern
 Type: `RegExp`
 
 The regular expression to test against the paths properties.
 
-##### negate
+##### options.negate
 Type: `Boolean`
 
-When set to true the function will return all immediate children of this node whose path doesn't match the given pattern.
+When set to true the function will return all children of this node whose path doesn't match the given pattern.
 
-#### TreeNode.getChildrenByNotPattern(pattern)
-Type: `Function`
+##### options.recurse
+Type: `Boolean` Default: `false`
 
-This function is the same as calling TreeNode.getChildrenByPattern(pattern, true);
-
-#### TreeNode.getFilesByPattern(pattern, negate)
-Type: `Function`
-
-This function is the same as calling TreeNode.getFilesByNotPatter(pattern, true);
-
-#### TreeNode.getDirectoriesByPattern(pattern, negate)
-Type: `Function`
-
-This function is the same as calling TreeNode.getDirectoriesByNotPatter(pattern, true);
+When set to true all descendants of this node will be iterated through.
 
 #### TreeNode.getRoot()
 Type: `Function`

@@ -24,7 +24,7 @@ describe('forEach tests', function () {
     tree.forEach(function (item) {
       totalCount++;
       results[item.path] += 1;
-    });
+    }, { recurse: true });
 
     assert.equal(totalCount, 8, 'total number of iterations incorrect');
     assert.equal(results[path.join(__dirname, '/fixtures/test3')], 1, 'root directory incorrect');
@@ -53,7 +53,7 @@ describe('forEach tests', function () {
     tree.forEachFile(function (item) {
       totalCount++;
       results[item.path] += 1;
-    });
+    }, { recurse: true });
 
     assert.equal(totalCount, 5, 'total number of iterations incorrect');
     assert.equal(results[path.join(__dirname, '/fixtures/test3/file1.txt')], 1, 'file1 file incorrect');
@@ -76,7 +76,7 @@ describe('forEach tests', function () {
     tree.forEachDirectory(function (item) {
       totalCount++;
       results[item.path] += 1;
-    });
+    }, { recurse: true });
 
     assert.equal(totalCount, 3, 'total number of iterations incorrect');
     assert.equal(results[path.join(__dirname, '/fixtures/test3')], 1, 'root directory incorrect');
@@ -106,7 +106,7 @@ describe('forEach tests', function () {
       if (item.path === path.join(__dirname, '/fixtures/test3/sub')) {
         return false;
       }
-    });
+    }, { recurse: true });
 
     assert.equal(totalCount, 4, 'total number of iterations incorrect');
     assert.equal(results[path.join(__dirname, '/fixtures/test3')], 1, 'root directory incorrect');
