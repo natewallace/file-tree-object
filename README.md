@@ -132,7 +132,8 @@ signature of function (err, result).
 Type: `Function`
 
 This is the same as the createTree function except that it has a synchronous format.  Any errors that occur will be thrown
-and the resulting tree is returned when the function call succeeds.
+and the resulting tree is returned when the function call succeeds.  If ignoreError is set to true in the options parameter
+then any errors that may occur will be ignored and null will be returned by this function.
 
 ### `TreeNode`
 Type: `Class`

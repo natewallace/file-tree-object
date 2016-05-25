@@ -1,6 +1,6 @@
 {
   "name": "file-tree-object",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "A utility for creating tree objects that represents files and directories.",
   "main": "index.js",
   "scripts": {

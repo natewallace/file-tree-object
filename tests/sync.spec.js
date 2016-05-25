@@ -119,5 +119,8 @@ describe('sync tests', function () {
       caughtErr = err;
     }
     assert.ok(caughtErr, 'error was not thrown as expected');
+
+    var tree2 = fto.createTreeSync(path.join(__dirname, '/fixtures/testx'), { ignoreError: true });
+    assert.equal(null, tree2, 'null was not returned as expected')
   });
 });
